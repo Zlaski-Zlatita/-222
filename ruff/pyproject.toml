@@ -1,0 +1,5 @@
+[tool.ruff] 
+target-version = "py38" 
+line-length = 88 
+select = ["E", "F", "W", "I", "C90"]
+exclude = ["__init__.py", "tests/*", "docs/*"]
