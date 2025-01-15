@@ -1,0 +1,11 @@
+FROM postgres:12-slim 
+  
+WORKDIR /app 
+
+ENV POSTGRES_PASSWORD=mysecretpassword 
+ENV POSTGRES_DB=mydatabase
+ENV POSTGRES_USER=myuser
+  
+RUN echo "CREATE DATABASE mydatabase;" | psql -U postgres 
+RUN echo "CREATE USER myuser WITH PASSWORD 'mysecretpassword';" | psql -U postgres 
+RUN echo "GRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;" | psql -U postgres
